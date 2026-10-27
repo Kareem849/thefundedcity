@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140" aria-hidden="true">
+<circle cx="60" cy="58" r="52" fill="#2f6bff"/><path d="M23.2 94.8 L60 137 L96.8 94.8 Z" fill="#2f6bff"/>
+<circle cx="60" cy="58" r="38" fill="#ffffff"/>
+<polygon points="60,30 84,44 60,58 36,44" fill="#6f8ff2"/>
+<polygon points="36,44 60,58 60,86 36,72" fill="#3a63e8"/>
+<polygon points="60,58 84,44 84,72 60,86" fill="#13213f"/>
+<polygon points="60,37.6 66.2,41.2 60,44.8 53.8,41.2" fill="#e0ad48"/>
+<g transform="matrix(1,0.5833,0,1,0,0)">
+<rect x="39" y="27" width="4.6" height="4.6" fill="#ffffff"/><rect x="46.6" y="27" width="4.6" height="4.6" fill="#e0ad48"/><rect x="54" y="27" width="4.6" height="4.6" fill="#ffffff" fill-opacity="0.7"/>
+<rect x="39" y="34.4" width="4.6" height="4.6" fill="#ffffff" fill-opacity="0.7"/><rect x="46.6" y="34.4" width="4.6" height="4.6" fill="#ffffff"/><rect x="54" y="34.4" width="4.6" height="4.6" fill="#e0ad48"/>
+<rect x="39" y="41.8" width="4.6" height="4.6" fill="#ffffff"/><rect x="46.6" y="41.8" width="4.6" height="4.6" fill="#ffffff" fill-opacity="0.7"/><rect x="54" y="41.8" width="4.6" height="4.6" fill="#ffffff"/>
+</g>
+<g transform="matrix(1,-0.5833,0,1,0,0)">
+<rect x="65.5" y="110" width="4.2" height="7.5" fill="#e0ad48"/><rect x="72" y="104.5" width="4.2" height="13" fill="#e0ad48"/><rect x="78.5" y="98" width="4.2" height="19.5" fill="#e0ad48"/>
+</g>
+<circle cx="97" cy="19" r="16" fill="#e0ad48" stroke="#ffffff" stroke-width="4.5"/>
+<path d="M89.6 19.4 L94.8 24.4 L104.4 14.2" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
