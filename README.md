@@ -24,6 +24,8 @@
 
 **Hidden until launch.** With `HIDDEN = true` in `scripts/build-site.mjs`, www.thefundedcity.com shows a "Coming soon" page, and the city lives at a private link: `/<CITY_PATH>/`. On launch day, set `HIDDEN = false` (and `PREVIEW = false`), run `npm run build:site` and push.
 
+**Frozen demo for prop firm marketing teams:** `https://www.thefundedcity.com/enter-zzty7pf84p/` is a snapshot from 28 Oct 2026. It's kept in `public/enter-zzty7pf84p/` with its own copy of the code, so later builds never change it. New work goes to the private `/<CITY_PATH>/` link.
+
 **Full launch (next):** real accounts and shared data through Supabase (an adapter behind `src/cloud.ts`), and the AI guides through a server function that holds the Anthropic API key. After that, payments for The Plaza.
 
 # FUNDEDCITY — POC

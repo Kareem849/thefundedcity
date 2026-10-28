@@ -10,7 +10,9 @@ const PREVIEW = true;
 // HIDDEN = true: thefundedcity.com shows a "Coming soon" page and the city lives at a private link
 // (https://www.thefundedcity.com/<CITY_PATH>/). Set HIDDEN = false on launch day to open the city at the root.
 const HIDDEN = true;
-const CITY_PATH = 'enter-zzty7pf84p';
+const CITY_PATH = 'build-2n4ylshhex'; // work in progress (private)
+// The DEMO link for prop firm marketing teams, /enter-zzty7pf84p/, is a frozen snapshot kept in
+// public/enter-zzty7pf84p/ with its own copy of the code. Builds never touch it.
 const ORIGIN = 'https://www.thefundedcity.com';
 const TITLE = 'FundedCity · The city of funded traders';
 const DESC = 'A 3D city for prop-firm traders: walk the city, compare prop firm plans, grow your tower with verified payouts, ride the cable car to Founders’ Summit and meet other funded traders.';
