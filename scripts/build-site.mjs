@@ -175,7 +175,6 @@ a:hover{text-decoration:underline}
   <div class="brand"><img src="/icons/favicon.svg" alt=""><b>Funded<span>City</span></b></div>
   <div class="eyebrow">THE CITY OF FUNDED TRADERS</div>
   <h1>The city is being built. <span>Opening soon.</span></h1>
-  <p>A 3D city for prop-firm traders: prop firm headquarters with real plans, towers that grow with every verified payout, and the traders behind them.</p>
   <div class="row"><span class="pill"><i></i>UNDER CONSTRUCTION</span><a href="https://x.com/kareemcapital" rel="noopener">Follow the launch on X · @kareemcapital</a></div>
 </main>
 </body>
