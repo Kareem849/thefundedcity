@@ -7,6 +7,10 @@ import { cpSync, mkdirSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { basename } from 'node:path';
 
 const PREVIEW = true;
+// HIDDEN = true: thefundedcity.com shows a "Coming soon" page and the city lives at a private link
+// (https://www.thefundedcity.com/<CITY_PATH>/). Set HIDDEN = false on launch day to open the city at the root.
+const HIDDEN = true;
+const CITY_PATH = 'enter-zzty7pf84p';
 const ORIGIN = 'https://www.thefundedcity.com';
 const TITLE = 'FundedCity · The city of funded traders';
 const DESC = 'A 3D city for prop-firm traders: walk the city, compare prop firm plans, grow your tower with verified payouts, ride the cable car to Founders’ Summit and meet other funded traders.';
@@ -72,7 +76,13 @@ ${PREVIEW ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<link rel=
 </body>
 </html>
 `;
-writeFileSync('site/index.html', html);
+if (HIDDEN) {
+  mkdirSync(`site/${CITY_PATH}`, { recursive: true });
+  writeFileSync(`site/${CITY_PATH}/index.html`, html.replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">\n<meta name="description"').replace(/<meta name="robots" content="noindex, nofollow">\n(?=<link rel="canonical")/, ''));
+  writeFileSync('site/index.html', comingSoon());
+} else {
+  writeFileSync('site/index.html', html);
+}
 
 writeFileSync('site/404.html', `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,4 +122,63 @@ writeFileSync('site/vercel.json', JSON.stringify({
 }, null, 2));
 writeFileSync('site/_headers', `/*\n${Object.entries(SEC).map(([k, v]) => `  ${k}: ${v}`).join('\n')}\n/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n`);
 
-console.log('site/ ready:', js, css, PREVIEW ? '(preview: search engines kept out)' : '');
+console.log('site/ ready:', js, css, PREVIEW ? '(preview: search engines kept out)' : '', HIDDEN ? `· city at /${CITY_PATH}/ · coming soon at /` : '');
+
+function comingSoon() {
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${TITLE} · Opening soon</title>
+<meta name="description" content="${DESC}">
+${PREVIEW ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<link rel="canonical" href="${ORIGIN}/">
+<meta name="theme-color" content="#13213f">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FundedCity">
+<meta property="og:title" content="${TITLE}">
+<meta property="og:description" content="${DESC}">
+<meta property="og:url" content="${ORIGIN}/">
+<meta property="og:image" content="${ORIGIN}/icons/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kareemcapital">
+<meta name="twitter:image" content="${ORIGIN}/icons/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@700;800&display=swap">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  background:#a9def4 url(/brand/city-wide.jpg) center/cover no-repeat;font-family:Manrope,system-ui,sans-serif;color:#13213f}
+main{width:min(620px,100%);background:#ffffff;border-radius:28px;padding:clamp(28px,5vw,48px);box-shadow:0 24px 70px rgba(19,33,63,.25);display:flex;flex-direction:column;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:52px}
+.brand b{font-family:Sora,Manrope,sans-serif;font-size:30px;font-weight:800;letter-spacing:-.03em}
+.brand b span{color:#2f6bff}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.24em;color:#8a6414;margin:6px 0 0}
+h1{margin:0;font-family:Sora,Manrope,sans-serif;font-size:clamp(38px,7vw,58px);font-weight:800;letter-spacing:-.035em;line-height:1.04;text-wrap:balance}
+h1 span{color:#2f6bff}
+p{margin:0;font-size:18px;line-height:1.55;color:#3c4a66;font-weight:600}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding-top:18px;border-top:2px solid #e6eaf2}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#13213f;color:#fff;font-size:13px;font-weight:800;letter-spacing:.12em}
+.pill i{width:9px;height:9px;border-radius:50%;background:#f2c14e}
+a{color:#2f6bff;font-weight:800;text-decoration:none}
+a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><img src="/icons/favicon.svg" alt=""><b>Funded<span>City</span></b></div>
+  <div class="eyebrow">THE CITY OF FUNDED TRADERS</div>
+  <h1>The city is being built. <span>Opening soon.</span></h1>
+  <p>A 3D city for prop-firm traders: prop firm headquarters with real plans, towers that grow with every verified payout, and the traders behind them.</p>
+  <div class="row"><span class="pill"><i></i>UNDER CONSTRUCTION</span><a href="https://x.com/kareemcapital" rel="noopener">Follow the launch on X · @kareemcapital</a></div>
+</main>
+</body>
+</html>
+`;
+}

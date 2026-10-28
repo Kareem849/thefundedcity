@@ -22,6 +22,8 @@
 - The header shows a PREVIEW tag.
 - `PREVIEW = true` in `scripts/build-site.mjs` keeps search engines out (`noindex` + `robots.txt`). Set it to `false` at full launch.
 
+**Hidden until launch.** With `HIDDEN = true` in `scripts/build-site.mjs`, www.thefundedcity.com shows a "Coming soon" page, and the city lives at a private link: `/<CITY_PATH>/`. On launch day, set `HIDDEN = false` (and `PREVIEW = false`), run `npm run build:site` and push.
+
 **Full launch (next):** real accounts and shared data through Supabase (an adapter behind `src/cloud.ts`), and the AI guides through a server function that holds the Anthropic API key. After that, payments for The Plaza.
 
 # FUNDEDCITY — POC
